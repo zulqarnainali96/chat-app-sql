@@ -1,0 +1,14 @@
+
+# Frontend Folder 
+frontend
+chat-app/node_modules
+
+# Backend Folder
+backend/node_modules
+backend/.env
+backend/.env.local
+backend/test.js
+backend/logs
+
+chat.html
+index.html

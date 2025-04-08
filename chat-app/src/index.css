@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Inter", sans-serif !important;
+  font-style: normal;
+}
+
+.mainGradientColor {
+  background-image: linear-gradient(180deg, #373b65, #4e5172, #777a9a);
+}
+.gradient2 {
+  background-image: linear-gradient(0deg, #777a9a, #3c406f);
+}
+.buttonGradient {
+  background-image: linear-gradient(0deg, #3c406f, #737bd4);
+}
+/* .msg-box {
+  overflow-y: auto;
+  scrollbar-width: none;
+} */
+.addFriendBtnContainer {
+  background-image: linear-gradient(180deg, #3c406f, #3f4370, #777a9a);
+}
+.addFriendBtn {
+  background-image: linear-gradient(180deg, #777a9a, #3c406f);
+  cursor: pointer;
+}
+.addFriendBtn2 {
+  background-image: linear-gradient(220deg, #3c406f, #737bd4);
+}
+.addFriendBtn2:hover {
+  background-image: linear-gradient(220deg, #737bd4, #3c406f);
+}
+.addFriendBtn2:focus {
+  background-image: linear-gradient(220deg, #737bd4, #3c406f);
+}
+
+.msg-box::-webkit-scrollbar {
+  width: 10px;
+}
+.msg-box::-webkit-scrollbar-track {
+  width: 12px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+.msg-box::-webkit-scrollbar-thumb {
+  background: linear-gradient(220deg, #737bd4, #3c406f) !important;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+.msg-box::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(180deg, #ff5e7e, #ff3366);
+}
+.msg-box::-webkit-scrollbar-thumb:active {
+  background-image: linear-gradient(180deg, #ff5e7e, #ff3366);
+}
+
+.list-scroll{
+  overflow-y: auto;
+}
+.list-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.list-scroll::-webkit-scrollbar-track {
+  width: 12px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+.list-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(220deg, #737bd4, #3c406f) !important;
+  transition: background 0.3s ease-in-out;
+  cursor: pointer;
+}
+.list-scroll::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(180deg, #ff5e7e, #ff3366);
+}
+.list-scroll::-webkit-scrollbar-thumb:active {
+  background-image: linear-gradient(180deg, #ff5e7e, #ff3366);
+}
+
+#spinner-style > svg {
+  height: 8.5rem !important;
+  width: 8.5rem !important;
+}
