@@ -4,7 +4,7 @@ import {
   getNotifcationsList,
   handleUserList,
 } from "../../Api/api-function";
-import React, { useEffect, useMemo, useReducer, useRef, useState } from "react";
+import { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { initialState, reducer } from "../../store/store";
 import { useToaster } from "../../Context/ToasterContext";
 import { useNavigate } from "@tanstack/react-router";

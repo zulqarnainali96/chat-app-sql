@@ -1,7 +1,6 @@
 const API_URL = "/api/v1/auth";
 const API_URL2 = "/api/v1/notifications";
 const API_URL3 = "/api/v1/friends";
-const WS = "/ws";
 
 interface LoginData {
   email: string;

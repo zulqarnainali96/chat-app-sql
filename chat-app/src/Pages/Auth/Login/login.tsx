@@ -11,7 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [state, dispatch] = useReducer<React.Reducer<State, Action>>(
+  const [_, dispatch] = useReducer<React.Reducer<State, Action>>(
     reducer,
     initialState,
   );

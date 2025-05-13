@@ -1,6 +1,5 @@
 import userImg from "../../assets/bg-image.jpg";
 import { MenuItem } from "@headlessui/react";
-import Loader from "../Loader";
 
 interface DropdownListProps {
   Friends: {
@@ -15,7 +14,7 @@ interface DropdownListProps {
   isLoading : boolean
 }
 
-const DropdownList = ({ Friends, onClick, isLoading }: DropdownListProps) => {
+const DropdownList = ({ Friends, onClick,  }: DropdownListProps) => {
   return (
       <MenuItem disabled={true} key={Friends.id}>
       <div className="addFriendBtn flex h-[122px] flex-row items-center justify-between gap-4 rounded-md bg-lightAngularGradient p-2 shadow-lg hover:shadow-xl">

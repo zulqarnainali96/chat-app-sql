@@ -9,6 +9,3 @@ backend/.env
 backend/.env.local
 backend/test.js
 backend/logs
-
-chat.html
-index.html

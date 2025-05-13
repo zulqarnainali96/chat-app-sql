@@ -43,10 +43,9 @@ const Register = () => {
       <section className="flex h-full w-full items-center justify-between">
         <div
           className="min-h-screen w-full bg-contain bg-no-repeat"
-          style={{
-            backgroundImage: `url(${imageBG})`,
-          }}
-        ></div>
+        >
+          <img src={imageBG} alt="Background"  />
+        </div>
         <div className="relative flex w-[39%] flex-col items-center justify-center gap-10">
           <input
             className="text-inputColor h-14 w-96 rounded-md border-indigo-600 bg-inputBG text-lg outline-none"
