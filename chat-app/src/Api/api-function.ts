@@ -1,6 +1,6 @@
-const API_URL = "/api/v1/auth";
-const API_URL2 = "/api/v1/notifications";
-const API_URL3 = "/api/v1/friends";
+const API_URL = "http://localhost:3000/api/v1/auth";
+const API_URL2 = "http://localhost:3000/api/v1/notifications";
+const API_URL3 = "http://localhost:3000/api/v1/friends";
 
 interface LoginData {
   email: string;

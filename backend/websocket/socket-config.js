@@ -58,10 +58,10 @@ socketServer.on("connection", (socket) => {
     for (const [userId, connection] of connectedUser.entries()) {
       if (connection === socket) {
         // Remove the user from the connected list
-        connectedUser.delete(userId);
-        console.log(
-          `User ${userId} disconnected. Total users: ${connectedUser.size}`
-        );
+        // connectedUser.delete(userId);
+        // console.log(
+        //   `User ${userId} disconnected. Total users: ${connectedUser.size}`
+        // );
         break;
       }
     }

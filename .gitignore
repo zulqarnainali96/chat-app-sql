@@ -6,6 +6,7 @@ chat-app/node_modules
 # Backend Folder
 backend/node_modules
 backend/.env
+chat-app/.env
 backend/.env.local
 backend/test.js
 backend/logs

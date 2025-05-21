@@ -19,7 +19,7 @@ export const loadingStyle = {
   marginTop: "12px",
 };
 
-const webSocket = new WebSocket("/ws");
+const webSocket = new WebSocket("ws://localhost:3000");
 
 const Dashboard = () => {
   const {

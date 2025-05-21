@@ -135,7 +135,7 @@ const acceptFriendRequest = async (messageData, socket, connectedUser) => {
 
       if (fromNotifications1) {
         let saveData = fromNotifications1[0].friends_list === null ? [] : "";
-        if (saveData.length > 0) {
+        if (saveData.length === null) {
           saveData.push(user_id);
           await Connection.execute(
             "UPDATE My_Friends SET friends_list = ? WHERE user_id = ?",
