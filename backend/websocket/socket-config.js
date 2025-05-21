@@ -27,18 +27,16 @@ socketServer.on("connection", (socket) => {
       connectedUser.set(id, socket);
     }
 
-    setInterval( () => {
-      const getAll = Array.from(connectedUser.keys())
-      for(let key in getAll){
-        const receipent = connectedUser.get(getAll[key])
-        const d = {
-          onlineUsersList: getAll,
-          type: "connected-user",
-        };
-        receipent.send(JSON.stringify(d))
-      }
-      // console.log(getAll)
-    }, 5000)
+    const getAll = Array.from(connectedUser.keys());
+    for (let key in getAll) {
+      const receipent = connectedUser.get(getAll[key]);
+      const d = {
+        onlineUsersList: getAll,
+        type: "connected-user",
+      };
+      receipent.send(JSON.stringify(d));
+    }
+    // console.log(getAll)
 
     if (data.type === "private-message") {
       sendMessage(connectedUser, data);
@@ -51,7 +49,7 @@ socketServer.on("connection", (socket) => {
     }
   });
 
-  socket.emit
+  socket.emit;
 
   socket.on("close", () => {
     // Find the user ID associated with this WebSocket connection

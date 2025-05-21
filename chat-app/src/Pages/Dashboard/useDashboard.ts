@@ -118,7 +118,7 @@ export const useDashboard = (webSocket: WebSocket) => {
     localStorage.removeItem("user");
     showToaster("Logut Successfully", "success");
     navigate({ to: "/login", from: "/dashboard" });
-    webSocket.close()
+    webSocket.close();
   };
 
   const sendMessageToUser = () => {
@@ -145,36 +145,6 @@ export const useDashboard = (webSocket: WebSocket) => {
     }
   };
 
-  const handleMessageCount = (data: {
-    from: string;
-    type: string;
-    to: string;
-    message: string;
-  }) => {
-    if (chatData) {
-      if (data?.from !== chatData.id) {
-        setMessageCounter((prev) => {
-          let result = null;
-          let finalres: { id: string; count: number }[] = [];
-          if (prev.length > 0) {
-            result = prev.find((item) => {
-              return item.id === data.from;
-            });
-            let res = prev.filter((item) => item.id !== data.from);
-            if (result) {
-              finalres = [...res, { ...result, count: (result.count += 1) }];
-            } else {
-              finalres = [...prev, { id: data.from, count: 1 }];
-            }
-          } else {
-            finalres = [{ id: data.from, count: 1 }];
-          }
-          return finalres;
-        });
-      }
-    }
-  };
-
   const clearCount = (id: string) => {
     setMessageCounter((prev) => {
       return prev.filter((i) => i.id !== id);
@@ -183,15 +153,15 @@ export const useDashboard = (webSocket: WebSocket) => {
 
   useEffect(() => {
     if (webSocket.readyState === webSocket.OPEN) {
-      console.log('data send:')
+      console.log("data send:");
       dispatch({ type: "socket", payload: webSocket });
       webSocket.send(JSON.stringify({ type: "user_online", id: user.id }));
     }
     return () => {
       webSocket.onclose = () => {
-        console.log('Connection is closed')
-      }
-    }
+        console.log("Connection is closed");
+      };
+    };
   }, [webSocket]);
 
   useEffect(() => {
@@ -203,6 +173,35 @@ export const useDashboard = (webSocket: WebSocket) => {
   }, [searchTerm]);
 
   useEffect(() => {
+    const handleMessageCount = (data: {
+      from: string;
+      type: string;
+      to: string;
+      message: string;
+    }) => {
+      if (chatData) {
+        if (data?.from !== chatData.id) {
+          setMessageCounter((prev) => {
+            let result = null;
+            let finalres: { id: string; count: number }[] = [];
+            if (prev.length > 0) {
+              result = prev.find((item) => {
+                return item.id === data.from;
+              });
+              const res = prev.filter((item) => item.id !== data.from);
+              if (result) {
+                finalres = [...res, { ...result, count: (result.count += 1) }];
+              } else {
+                finalres = [...prev, { id: data.from, count: 1 }];
+              }
+            } else {
+              finalres = [{ id: data.from, count: 1 }];
+            }
+            return finalres;
+          });
+        }
+      }
+    };
     webSocket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       const { type } = data;
@@ -226,9 +225,7 @@ export const useDashboard = (webSocket: WebSocket) => {
         console.log("connected user:", data?.onlineUsersList);
       }
     };
-    
   }, [webSocket]);
-
 
   return {
     data: filteredUsers,

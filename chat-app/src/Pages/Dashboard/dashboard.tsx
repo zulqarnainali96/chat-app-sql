@@ -1,3 +1,6 @@
+/* eslint-disable tailwindcss/no-custom-classname */
+// eslint-disable-next-line tailwindcss/classnames-order
+
 import Button from "../../Components/button";
 import { Menu, MenuButton } from "@headlessui/react";
 
@@ -12,6 +15,7 @@ import UserList from "../../Components/List";
 import { useDashboard } from "./useDashboard";
 import Loader from "../../Components/Loader";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const loadingStyle = {
   display: "flex",
   justifyContent: "center",
@@ -56,6 +60,7 @@ const Dashboard = () => {
               type="search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              // eslint-disable-next-line tailwindcss/classnames-order
               className="text-inputColor h-[50px] w-full rounded-3xl border-indigo-600 bg-inputBG text-lg outline-none"
               placeholder="Search username here"
             />
@@ -67,7 +72,15 @@ const Dashboard = () => {
                 No friends found....
               </h3>
             )}
-            {!isFriendList && <UserList onlineUser={connectedUser} clearCount={clearCount} count={messageCounter} data={data} onClick={openChat} />}
+            {!isFriendList && (
+              <UserList
+                onlineUser={connectedUser}
+                clearCount={clearCount}
+                count={messageCounter}
+                data={data}
+                onClick={openChat}
+              />
+            )}
           </div>
         </div>
         <div
@@ -78,6 +91,7 @@ const Dashboard = () => {
           </h2>
           <button
             onClick={logoutUser}
+            // eslint-disable-next-line tailwindcss/classnames-order
             className="text-md text-black absolute right-40 top-[150px] cursor-pointer rounded-md bg-white p-3 font-bold active:bg-lightAngularGradient active:text-white"
           >
             Logout
@@ -110,12 +124,12 @@ const Dashboard = () => {
               />
             </Menu>
           </div>
-          <div className="flex w-full flex-col items-center justify-center gap-1 px-2 py-2">
+          <div className="flex w-full flex-col items-center justify-center gap-1 p-2">
             <div
               ref={heightSet}
               className={`msg-box mainGradientColor relative w-full overflow-y-auto shadow-lg shadow-gray-400 ${chatData.id ? "h-[618px]" : "h-[686px]"}`}
             >
-              <h1 className="pt-3 text-center text-xl font-bold text-inputBG">
+              <h1 className="text-inputBG pt-3 text-center text-xl font-bold">
                 {chatData.username}
               </h1>
               {chatData.id ? (
@@ -125,7 +139,7 @@ const Dashboard = () => {
                   })}
                 </>
               ) : (
-                <h1 className="mt-4 self-center text-center text-xl font-bold text-inputBG">
+                <h1 className="text-inputBG mt-4 self-center text-center text-xl font-bold">
                   No Chats Founds
                 </h1>
               )}
@@ -133,8 +147,8 @@ const Dashboard = () => {
             {chatData.id && (
               <div className="relative h-auto w-full">
                 <input
-                  className="mainGradientColor h-16 w-full border-none p-2 text-lg  text-white 
-                placeholder-inputBG placeholder:text-inputBG"
+                  className="mainGradientColor placeholder:text-inputBG h-16 w-full border-none  p-2 
+                text-lg text-white"
                   type="text"
                   onKeyDown={(e) => e.key === "Enter" && sendMessageToUser()}
                   value={message}

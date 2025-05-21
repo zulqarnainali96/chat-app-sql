@@ -1,6 +1,6 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import { MenuItem, MenuItems } from "@headlessui/react";
 import NotificationsDropdownList from "./DropdownList/NotificationsDropdownList";
-import { useEffect } from "react";
 
 const NotificationsDropdown = ({
   notificationsList,
@@ -17,11 +17,10 @@ const NotificationsDropdown = ({
     date: string;
   }[];
 }) => {
-  useEffect(() => {}, [notificationsList]);
   return (
     <MenuItems
       transition
-      className="msg-box addFriendBtnContainer absolute right-0 z-10 mt-2 h-[417px] w-[575px] origin-top-right scroll-smooth rounded-xl p-2 shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+      className="msg-box addFriendBtnContainer absolute right-0 z-10 mt-2 h-[417px] w-[575px] origin-top-right scroll-smooth rounded-xl p-2 shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
     >
       <div className="h-auto w-full overflow-y-auto p-2">
         {notificationsList?.length > 0 ? (
@@ -37,6 +36,7 @@ const NotificationsDropdown = ({
             );
           })
         ) : (
+          // eslint-disable-next-line tailwindcss/classnames-order
           <h3 className="text-md text-center font-semibold text-inputBG sm:text-sm">
             No notification found
           </h3>

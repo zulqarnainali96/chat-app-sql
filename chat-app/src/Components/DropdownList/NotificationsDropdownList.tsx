@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 const NotificationsDropdownList = ({
   notification,
   acceptFriendRequest,
@@ -17,10 +18,10 @@ const NotificationsDropdownList = ({
   const d = [new Date(date).toLocaleDateString()].join('-');
   const time = new Date(date).toLocaleTimeString();
   return (
-    <div className="addFriendBtn mb-2 flex h-[122px] flex-row items-center justify-between gap-4 rounded-lg bg-lightAngularGradient p-2 shadow-lg hover:shadow-xl">
+    <div className="addFriendBtn bg-lightAngularGradient mb-2 flex h-[122px] flex-row items-center justify-between gap-4 rounded-lg p-2 shadow-lg hover:shadow-xl">
       <div className="flex flex-col gap-2">
-        <h3 className="text-md font-semibold text-white">you have recieved { "a " + message}</h3>
-        <span className="text-sm font-light italic text-inputBG">
+        <h3 className="text-md font-semibold text-white">{message}</h3>
+        <span className="text-inputBG text-sm font-light italic">
           {d + " " + time}
         </span>
       </div>
